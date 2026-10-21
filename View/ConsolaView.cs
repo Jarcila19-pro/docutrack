@@ -64,7 +64,7 @@ public class ConsolaView
                 Mensaje($"Insertar '{nombre}': RECHAZADO (duplicado, ya existe en el árbol).");
                 break;
             default:
-                Mensaje($"Insertar: RECHAZADO (nombre vacío o nulo).");
+                Mensaje($"Insertar '{nombre}': RECHAZADO (nombre vacío o nulo).");
                 break;
         }
     }
