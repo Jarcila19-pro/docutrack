@@ -20,7 +20,7 @@ mayúsculas). Regla del BST: *menor a la izquierda, mayor a la derecha; sin dupl
 |------------|----------------|
 | **Juan Esteban Arcila** | Modelo — `Nodo`, `ArbolBinario` (BST, CRUD, recorridos, métricas) |
 | **Juan Martín López** | Vista — `ConsolaView` (impresión ASCII del árbol, mensajes y métricas) |
-| **Juan Alejandro Cardona** | Controller — `ArbolController` (orquestación de casos de uso) y repositorio |
+| **Juan Alejandro Cardona** | Controller — `ArbolController` (orquestación y secuenciación de los 6 casos de uso: construcción, búsquedas, actualizaciones, eliminaciones, recorridos y altura) |
 
 > Los tres integrantes participan en el diseño, las pruebas y la revisión del código.
 
