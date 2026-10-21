@@ -21,6 +21,7 @@ public class ArbolController
         Caso4_Eliminaciones(arbol, vista);
         Caso5_Recorridos(arbol, vista);
         Caso6_Altura(arbol, vista);
+        Caso7_Robustez(arbol, vista);
 
         vista.Encabezado("FIN DE LA EJECUCIÓN");
     }
@@ -145,5 +146,45 @@ public class ArbolController
     {
         vista.Encabezado("CASO 6 - MÉTRICA FINAL");
         vista.ImprimirAltura(arbol.Altura());
+    }
+
+    // ---------------------------------------------------- 7. Validaciones y robustez
+    // Verifica casos límite (nulos, vacíos, duplicados, nombres inexistentes y
+    // búsqueda insensible a mayúsculas). Estas operaciones NO modifican el árbol.
+    private static void Caso7_Robustez(ArbolBinario arbol, ConsolaView vista)
+    {
+        vista.Encabezado("CASO 7 - VALIDACIONES Y ROBUSTEZ (casos límite)");
+        vista.Mensaje("Ninguna de estas operaciones modifica el árbol; solo comprueban las validaciones.");
+
+        vista.Subtitulo("Insertar nombre NULO");
+        arbol.Insertar(null!, false);
+        vista.ImprimirInsercion("(nulo)", false, arbol.UltimoResultadoInsercion, arbol.ComparacionesUltimaInsercion);
+
+        vista.Subtitulo("Insertar nombre VACÍO (solo espacios)");
+        arbol.Insertar("   ", true);
+        vista.ImprimirInsercion("   ", true, arbol.UltimoResultadoInsercion, arbol.ComparacionesUltimaInsercion);
+
+        vista.Subtitulo("Insertar DUPLICADO ('Guias' ya existe)");
+        arbol.Insertar("Guias", false);
+        vista.ImprimirInsercion("Guias", false, arbol.UltimoResultadoInsercion, arbol.ComparacionesUltimaInsercion);
+
+        vista.Subtitulo("Actualizar a un nombre que YA EXISTE ('Backup' -> 'Guias')");
+        arbol.Actualizar("Backup", "Guias", out string m1);
+        vista.ImprimirActualizacion("Backup", "Guias", m1 == "", m1);
+
+        vista.Subtitulo("Actualizar un nodo INEXISTENTE ('NoExiste.txt' -> 'Nuevo.txt')");
+        arbol.Actualizar("NoExiste.txt", "Nuevo.txt", out string m2);
+        vista.ImprimirActualizacion("NoExiste.txt", "Nuevo.txt", m2 == "", m2);
+
+        vista.Subtitulo("Eliminar un nodo INEXISTENTE ('Fantasma.zip')");
+        bool e1 = arbol.Eliminar("Fantasma.zip");
+        vista.ImprimirEliminacion("Fantasma.zip", e1, arbol.UltimoCasoEliminacion);
+
+        vista.Subtitulo("Búsqueda insensible a MAYÚSCULAS ('guias' debe hallar 'Guias')");
+        Nodo? res = arbol.Buscar("guias", out int comp);
+        vista.ImprimirBusqueda("guias", res, comp);
+
+        vista.Subtitulo("Árbol tras las validaciones (debe ser idéntico al del Caso 4)");
+        vista.ImprimirArbol(arbol.Raiz);
     }
 }

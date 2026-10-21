@@ -24,6 +24,19 @@ mayúsculas). Regla del BST: *menor a la izquierda, mayor a la derecha; sin dupl
 
 > Los tres integrantes participan en el diseño, las pruebas y la revisión del código.
 
+### Nota sobre el trabajo colaborativo
+
+Este proyecto se desarrolló de forma **conjunta** por los tres integrantes, compañeros de la
+carrera desde hace 3 años. El trabajo se coordinó en **llamadas en tiempo real**, donde se diseñó
+la estructura, se implementaron las capas y se probaron los casos de uso de manera colaborativa
+(enfrentando juntos los problemas de compilación y de ejecución que surgieron).
+
+Aunque cada integrante lideró un área del patrón MVC —y así aparece la autoría de los commits—,
+las decisiones de diseño, la implementación, las pruebas y la revisión del código se realizaron
+**en equipo**: cada decisión se discutió y validó entre los tres antes de quedar en el repositorio.
+La autoría por commit refleja la **repartición de responsabilidades**, no una división del trabajo
+por separado.
+
 ---
 
 ## Requisitos para ejecutar
