@@ -39,20 +39,97 @@ por separado.
 
 ---
 
-## Requisitos para ejecutar
+## 🚀 Paso a paso: clonar y ejecutar desde cero
 
-- [.NET SDK 8.0](https://dotnet.microsoft.com/download/dotnet/8.0) (LTS) o superior.
-- Un terminal / símbolo del sistema.
+> Esta guía está pensada para **cualquier persona que llegue al proyecto por primera vez**, o
+> que **no recuerde los pasos** (incluidos nosotros mismos si retomamos el proyecto más adelante).
+> No importa el nivel de experiencia: sigue los pasos en orden y el proyecto quedará funcionando.
 
-### Compilar y ejecutar
+### Requisitos previos
+1. **Git** — para clonar el repositorio.
+2. **.NET SDK 8.0** (o superior) — para compilar y ejecutar.
+3. *(Opcional)* **Visual Studio 2022** — para abrirlo con interfaz gráfica.
 
+#### Instalar Git
+- **Windows:** https://git-scm.com/download/win
+- **macOS:** `brew install git` (o viene incluido con Xcode)
+- **Linux (Debian/Ubuntu):** `sudo apt install git`
+
+#### Instalar .NET SDK 8
+- Descargar de https://dotnet.microsoft.com/download/dotnet/8.0
+- Instalar con las opciones por defecto (siguiente → siguiente → finalizar).
+
+---
+
+### Opción A — Ejecutar desde la terminal (recomendado)
+
+#### 1. Verificar que quedaron instalados
+Abre una **terminal NUEVA** (importante, para que reconozca la instalación) y ejecuta:
+```bash
+dotnet --version    # debe mostrar 8.x.x o superior
+git --version
+```
+
+#### 2. Clonar el repositorio
+```bash
+git clone https://github.com/Jarcila19-pro/docutrack.git
+```
+
+#### 3. Entrar a la carpeta del proyecto
 ```bash
 cd docutrack
+```
+
+#### 4. Compilar y ejecutar
+```bash
 dotnet run
 ```
 
-> También puede abrirse la carpeta en **Visual Studio** y ejecutar el proyecto `DocuTrack`.
-> No requiere dependencias externas ni pasos adicionales: compila y ejecuta directamente.
+Deberías ver los encabezados de los **Casos 1 a 7** y el árbol ASCII en consola.
+
+#### 5. (Opcional) Verificar solo la compilación
+```bash
+dotnet build
+```
+
+> Si aparece `Compilación correcta` con **0 errores y 0 advertencias**, todo está bien.
+
+---
+
+### Opción B — Abrir y ejecutar desde Visual Studio
+
+1. **Instalar Visual Studio 2022** (Community es gratuita): https://visualstudio.microsoft.com/
+   - En el instalador, marca la carga de trabajo **".NET desktop development"**
+     (Desarrollo de escritorio de .NET).
+2. Abre Visual Studio y elige **"Abrir un proyecto o solución"**.
+3. Selecciona el archivo **`DocuTrack.csproj`** (en la raíz de la carpeta `docutrack`).
+   - Si no aparece, cambia el filtro del diálogo a **"Todos los archivos (*.*)"**.
+   - Visual Studio generará la solución y restaurará las dependencias automáticamente.
+4. Verifica la barra superior:
+   - Proyecto de inicio: **DocuTrack**
+   - Configuración: **Debug**
+5. Presiona **`F5`** (con depuración) o **`Ctrl + F5`** (sin depuración).
+6. Se abrirá la consola con la salida del programa (Casos 1 a 7).
+
+> 💡 Si usas **Visual Studio Code**, abre la carpeta y ejecuta con `dotnet run` desde la terminal
+> integrada (la extensión "C# Dev Kit" es opcional).
+
+---
+
+### ¿Problemas comunes?
+
+| Síntoma | Causa probable | Solución |
+|---|---|---|
+| `dotnet` no se reconoce | La terminal se abrió antes de instalar el SDK | Cerrar y abrir una terminal nueva; si persiste, reinstalar el SDK. |
+| `git` no se reconoce | Git no está instalado | Instalar Git y reabrir la terminal. |
+| "No se encontró ningún proyecto" | Estás en la carpeta equivocada | Asegúrate de estar dentro de `docutrack` (donde está `DocuTrack.csproj`). |
+| Visual Studio no muestra el archivo | Filtro de archivos activo | Cambia el filtro a "Todos los archivos (*.*)". |
+| La consola se cierra muy rápido | Se ejecutó sin pausa o desde un entorno sin consola | Usa `Ctrl + F5`, o coloca un punto de interrupción con `F9`. |
+
+---
+
+> **Nota:** el proyecto no requiere dependencias externas, paquetes NuGet adicionales ni
+> configuración especial. Con el SDK de .NET instalado, compila y ejecuta directamente.
 
 ---
 
